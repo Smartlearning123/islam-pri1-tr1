@@ -390,6 +390,11 @@ button:focus-visible{outline:4px solid #3b82f6;outline-offset:2px}
 .cc.ci::before,.cc.ci::after{display:none!important}
 .row.pics .opt{height:94px;padding:6px;display:flex;align-items:center;justify-content:center}
 .row.pics .mi{width:100%;height:80px;max-height:none;object-fit:contain;border-radius:0}
+.top .ut .tem{font-size:24px;line-height:1;vertical-align:middle;display:inline-block;margin-inline-start:4px}
+.top .ut .tq{height:42px;width:42px;object-fit:contain;vertical-align:middle;margin-inline-start:4px}
+.top .ut .ct{vertical-align:middle;line-height:1}
+.top .ut .tsb{filter:hue-rotate(180deg) saturate(1.8) brightness(1.05)}
+.top .ut .tev{font-size:24px}
 </style>
 </head>
 <body>
@@ -518,7 +523,7 @@ function catMenu(ui){
 }
 function catScreen(ci){
  NAVID++;GR=null;const cc=CATS[ci];app.style.setProperty('--cc',cc.c);if(TCOL!==cc.c)setTint(cc.c);
- app.innerHTML=bar((cc.k==='القرآن والتفسير'||cc.k==='العبادات'?'<img class="tq" alt="" src="'+(cc.k==='العبادات'?CIM.rug:CIM.quran)+'">':cc.k==='السير والشخصيات'?'📚':cc.e)+' <span class="ct">'+cc.k+'</span>',1,0)+`<p class="sub">الدروس</p><div class="ul">`+lessonsOf(cc.k).map((x,j)=>{const u=x[0];return `<button class="unit${done[u.n]?' dn':''}" style="--c:${cc.c};--d:${j*.08}s;background:linear-gradient(100deg,${cc.c}44,var(--card))" data-i="${x[1]}"><span class="e${u.i?' pe'+(u.i==='adam'||u.i==='mohammed'?' pc':u.i==='quran'?' pq':''):''}">${u.i?'<img alt="" src="'+CIM[u.i]+'">':KI(u.e)}</span><span>${u.n.length>25?'<span style="font-size:.78em">'+u.n+'</span>':u.n}<small>${done[u.n]?'<span class="dnb"><i class="ico chk"></i>تم إنجاز الدرس</span>':(u.g?u.g.length+' أقسام':u.r.length+' سؤال')}</small></span></button>`}).join('')+'</div>';
+ app.innerHTML=bar((cc.k==='القرآن والتفسير'?'<img class="tq" alt="" src="'+CIM.quran+'">':cc.k==='العبادات'?'<span class="tem tsb">📿</span>':'<span class="tem'+(cc.k==='القيم والأخلاق'?' tev':'')+'">'+(cc.k==='السير والشخصيات'?'📚':cc.e)+'</span>')+' <span class="ct">'+cc.k+'</span>',1,0)+`<p class="sub">الدروس</p><div class="ul">`+lessonsOf(cc.k).map((x,j)=>{const u=x[0];return `<button class="unit${done[u.n]?' dn':''}" style="--c:${cc.c};--d:${j*.08}s;background:linear-gradient(100deg,${cc.c}44,var(--card))" data-i="${x[1]}"><span class="e${u.i?' pe'+(u.i==='adam'||u.i==='mohammed'?' pc':u.i==='quran'?' pq':''):''}">${u.i?'<img alt="" src="'+CIM[u.i]+'">':KI(u.e)}</span><span>${u.n.length>25?'<span style="font-size:.78em">'+u.n+'</span>':u.n}<small>${done[u.n]?'<span class="dnb"><i class="ico chk"></i>تم إنجاز الدرس</span>':(u.g?u.g.length+' أقسام':u.r.length+' سؤال')}</small></span></button>`}).join('')+'</div>';
  document.getElementById('bk').onclick=home;
  app.querySelectorAll('.unit').forEach(b=>b.onclick=()=>{const i=+b.dataset.i;if(U[i].g)catMenu(i);else{GR=null;play(i,0)}});
 }
