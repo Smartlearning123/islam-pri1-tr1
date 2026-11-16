@@ -568,7 +568,7 @@ function parentGate(){
  d.querySelector('#gok').onclick=go;d.querySelector('#gno').onclick=()=>d.remove();inp.onkeydown=e=>{if(e.key==='Enter')go()};
  d.onclick=e=>{if(e.target===d)d.remove()};
 }
-const LANDING_URL='https://smartlearning123.github.io/Islamic-education/';const FB_DEFAULT='https://www.facebook.com/learnourreligin';let FB_URL=FB_DEFAULT;let SHEET_URL=''; // ضعي هنا رابط الجدول المنشور (CSV) بين العلامتين
+const LANDING_URL='https://smartlearning123.github.io/islamic-education/';const FB_DEFAULT='https://www.facebook.com/learnourreligin';let FB_URL=FB_DEFAULT;let SHEET_URL=''; // ضعي هنا رابط الجدول المنشور (CSV) بين العلامتين
 let CFG={};
 function csvRows(t){const R=[];let r=[],c='',q=false;for(let i=0;i<t.length;i++){const ch=t[i];if(q){if(ch==='"'){if(t[i+1]==='"'){c+='"';i++}else q=false}else c+=ch}else if(ch==='"')q=true;else if(ch===','){r.push(c);c=''}else if(ch==='\n'||ch==='\r'){if(ch==='\r'&&t[i+1]==='\n')i++;r.push(c);c='';R.push(r);r=[]}else c+=ch}if(c!==''||r.length){r.push(c);R.push(r)}return R}
 function applyCfg(c){CFG=c||{};FB_URL=(CFG.fb_url||'').trim()||FB_DEFAULT}
